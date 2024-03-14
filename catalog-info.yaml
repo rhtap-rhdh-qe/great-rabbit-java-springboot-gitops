@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: great-rabbit-java-springboot-gitops
+  description: This is GitOps manifest for great-rabbit-java-springboot   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: great-rabbit-java-springboot
+    janus-idp.io/tekton: great-rabbit-java-springboot 
+    backstage.io/kubernetes-id: great-rabbit-java-springboot 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:great-rabbit-java-springboot
